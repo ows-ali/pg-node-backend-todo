@@ -29,6 +29,7 @@ app.post('/todos', db.createTodo)
 app.put('/todos/:id', db.updateTodo)
 app.delete('/todos/:id', db.deleteTodo)
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}.`)
+app
+.listen(process.env.PORT || 5000, () => {
+  console.log(`App running on port.`)
 })
