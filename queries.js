@@ -26,7 +26,22 @@ const getTodos = (request, response) => {
     })
   }
 
-  const getTodoById = (request, response) => {
+
+  const getTodosDone = (request, response) => {
+    toShow = 10
+    const offset = request.params.pageNumber ? request.params.pageNumber*toShow - toShow :0
+  
+    pool.query('SELECT count(*) FROM todos where status=true', (error, results) => {
+        if (error) {
+          throw error
+        }
+        const count = results.rows[0].count
+        response.status(200).json(count)        
+          
+      })
+    }
+  
+    const getTodoById = (request, response) => {
     const id = parseInt(request.params.id)
   
     pool.query('SELECT * FROM todos WHERE id = $1', [id], (error, results) => {
@@ -94,6 +109,7 @@ const createTodo = (request, response) => {
   
   module.exports = {
     getTodos,
+    getTodosDone,
     createTodo,
     getTodoById,
     updateTodo,
