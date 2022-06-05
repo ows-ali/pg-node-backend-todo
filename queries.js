@@ -1,12 +1,12 @@
 const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'testdb',
-  password: '123',
-  port: 5432,
-})
 
+const pool = new Pool({
+  
+  connectionString: 'postgres://eumbtsoeobozxu:055434bb19a700c51d9a0bb865bb3ef3d7177618dc25f4e2ba6480a1915b4d01@ec2-54-165-178-178.compute-1.amazonaws.com:5432/davmjgodv254sj',
+  ssl: {
+    rejectUnauthorized: false
+  }
+})
 
 const getTodos = (request, response) => {
   toShow = 10

@@ -6,7 +6,7 @@ const port = 3000
 const cors = require("cors");
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));
