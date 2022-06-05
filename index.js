@@ -23,6 +23,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/todos/:pageNumber', db.getTodos)
+app.get('/todosdone/', db.getTodosDone)
 app.get('/todo/:id', db.getTodoById)
 app.post('/todos', db.createTodo)
 app.put('/todos/:id', db.updateTodo)
